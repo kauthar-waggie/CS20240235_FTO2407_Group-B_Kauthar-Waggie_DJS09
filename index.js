@@ -1,10 +1,11 @@
+"use strict";
 // Number Types mini-challenge 10 10.2
 // Write a function that will only accept numbers and attend to 
 // all TypeScript weakness flags.
 // : number
-document.addEventListener('DOMContentLoaded', function () {
-    var reviewTotalDisplay = document.querySelector('#reviews');
-    var reviews = [
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewTotalDisplay = document.querySelector('#reviews');
+    const reviews = [
         {
             name: 'Sheia',
             stars: 5,
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     ];
     function showReviewTotal(value, reviewer, isLoyalty) {
-        var iconDisplay = isLoyalty ? '⭐' : '';
+        const iconDisplay = isLoyalty ? '⭐' : '';
         reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
     }
     showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
