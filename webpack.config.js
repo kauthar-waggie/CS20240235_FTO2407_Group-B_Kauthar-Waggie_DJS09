@@ -1,29 +1,33 @@
+const path = require('path');
+
 module.exports = {
-  "output": {
-    "filename": "[name].pack.js"
+  entry: "./src/index.ts", // Entry point for your TypeScript code
+  output: {
+    filename: "index.pack.js", // Name of the output file
+    path: path.resolve(__dirname, "dist"), // Output directory
   },
-  "entry": {
-    "index": "./index"
+  resolve: {
+    extensions: [".ts", ".js"], // Resolve TypeScript and JavaScript files
   },
-  "resolve": {
-    "extensions": [
-      ".ts",
-      ".js",
-      ".json"
-    ]
-  },
-  "module": {
-    "rules": [
+  module: {
+    rules: [
       {
-        "use": {
-          "loader": "ts-loader"
+        test: /\.ts$/, // Match TypeScript files
+        use: "ts-loader", // Use ts-loader to process TypeScript
+        exclude: /node_modules/, // Exclude node_modules
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i, // Handle image files
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]", // Place images in the 'images' folder
         },
-        "exclude": /node_modules/,
-        "test": /\.ts$/
-      }
-    ]
-  }
+      },
+    ],
+  },
+  mode: "development", // Set mode to 'development' or 'production'
 };
+
 
 
 
