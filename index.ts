@@ -1,5 +1,6 @@
 // Union Types
-import { showReviewTotal, populateUser } from './utils'
+import { showReviewTotal, populateUser, showDetails } from './utils'
+import { Price, Country } from './types'
 import { Permissions , LoyaltyUser } from './enums'
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
@@ -53,7 +54,7 @@ const properties : {
     isAvailable: boolean;
 }[] = [
     {
-        image: 'images/colombia-property.jpg',
+        image: 'images/colombian-shack.jpeg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -66,7 +67,7 @@ const properties : {
         isAvailable: true  
     },
     {
-        image: 'images/poland-property.jpg',
+        image: 'images/polish-cottage.jpeg',
         title: 'Polish Cottage',
         price: 34,
         location: {
@@ -79,7 +80,7 @@ const properties : {
         isAvailable: false 
     },
     {
-        image: 'images/london-property.jpg',
+        image: 'images/london-flat.jpeg',
         title: 'London Flat',
         price: 23,
         location: {
@@ -106,6 +107,7 @@ for (let i = 0; i < properties.length; i++) {
     const image = document.createElement('img')
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
+    showDetails(you.permissions, card, properties[i].price)
     propertyContainer.appendChild(card)
 }
 
