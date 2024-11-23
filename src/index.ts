@@ -1,7 +1,7 @@
 // Union Types
 import { showReviewTotal, populateUser, showDetails } from './utils'
-import { Permissions , LoyaltyUser } from './enums'
 import { Price, Country } from './types'
+import { Permissions , LoyaltyUser } from './enums'
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
@@ -48,13 +48,13 @@ const properties : {
         firstLine: string;
         city: string;
         code: number;
-        country: Country;
+        country: string;
     };
     contact: [ number, string ];
     isAvailable: boolean;
 }[] = [
     {
-        image: 'images/colombia-property.jpg',
+        image: 'images/colombian-shack.jpeg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -67,7 +67,7 @@ const properties : {
         isAvailable: true  
     },
     {
-        image: 'images/poland-property.jpg',
+        image: 'images/polish-cottage.jpeg',
         title: 'Polish Cottage',
         price: 34,
         location: {
@@ -80,7 +80,7 @@ const properties : {
         isAvailable: false 
     },
     {
-        image: 'images/london-property.jpg',
+        image: 'images/london-flat.jpeg',
         title: 'London Flat',
         price: 23,
         location: {
